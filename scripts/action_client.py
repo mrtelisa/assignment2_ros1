@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 
 import rospy 
 import actionlib.msg
@@ -10,6 +10,8 @@ from nav_msgs.msg import Odometry
 
 import assignment_2_2024.msg
 from ass2_ros1.msg import RobotPosVel
+
+def pub_PosVel(msg): pass
 
 state_pub = rospy.Publisher("/robot_state", RobotPosVel, queue_size=10)
 rospy.Subscriber("/odom", Odometry, pub_PosVel)
@@ -33,7 +35,7 @@ def define_goal(client, des_x, des_y):
 
 # Function to make the user interact with the system while it is working
 def interactions(client):
-    user_request = input("Press: 'q' to cancel the goal; 'f' to recive feedback; 'e' to exit")
+    user_request = input("Press: 'q' to cancel the goal; 'f' to recive feedback; 'e' to exit  ->  ")
 
     # The user wants to quit 
     if user_request.lower() == 'q':
@@ -95,20 +97,20 @@ if __name__ == '__main__':
             if des_y == "exit": break        
 
             # Defining the client
-            client = actionlib.SimpleActionClient('reaching_goal', assignment_2_2024.msgs.PlanningAction)
+            client = actionlib.SimpleActionClient('reaching_goal', assignment_2_2024.msg.PlanningAction)
             client.wait_for_server()
             
             # Officially setting the target
             define_goal(client, des_x, des_y)
 
             # Making the code run 
-            while client.get_state() not in [actionlib.GoalStatus.SUCCEDED, actionlib.GoalStatus.ABORTED, actionlib.GoalStatus.PREEMPTED]:
+            while client.get_state() not in [actionlib.GoalStatus.SUCCEEDED, actionlib.GoalStatus.ABORTED, actionlib.GoalStatus.PREEMPTED]:
                 inter = interactions(client)
                 rate.sleep()
                 if inter == "exit": break
                 
-        rospy.loginfo("Ecit succesfully")
+        rospy.loginfo("Exit succesfully")
 
-    except rospy.ROSInterruptionException:
+    except rospy.ROSInterruptException:
         print("Action_client node interrupted", file = sys.stderr)
 
