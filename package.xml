@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>ass2_ros1</name>
+  <version>0.0.0</version>
+  <description>The ass2_ros1 package</description>
+
+  <!-- One maintainer tag required, multiple allowed, one person per tag -->
+  <maintainer email="s6504193@studenti.unige.it">root</maintainer>
+
+
+  <!-- One license tag required, multiple allowed, one license per tag -->
+  <!-- Commonly used license strings: -->
+  <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
+  <license>TODO</license>
+
+
+  <!-- Author tags are optional, multiple are allowed, one per tag -->
+  <!-- Authors do not have to be maintainers, but could be -->
+  <author email="s6504193@studenti.unige.it"> Elisa Martinenghi</author>
+
+
+  <!-- The *depend tags are used to specify dependencies -->
+
+  <!-- Use build_depend for packages you need at compile time: -->
+  <build_depend>message_generation</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>actionlib</build_depend>
+  <build_depend>actionlib_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+
+  <!-- Use build_export_depend for packages you need in order to build against this package: -->
+  <build_export_depend>message_generation</build_export_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+  <build_export_depend>actionlib</build_export_depend>
+  <build_export_depend>actionlib_msgs</build_export_depend>
+
+  <!-- Use buildtool_depend for build tool packages: -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Use exec_depend for packages you need at runtime: -->
+  <exec_depend>message_runtime</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>actionlib</exec_depend>
+  <exec_depend>actionlib_msgs</exec_depend>
+  <exec_depend>message_generation</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+  
+  <!-- Other tools can request additional information be placed here -->
+  </export>
+</package>

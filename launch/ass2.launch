@@ -1,0 +1,10 @@
+<!--  Create a launch file to start the whole simulation -->
+
+<launch>
+    <!-- Launch node pre-implemented inside assignment2_2024 -->
+    <include file="$(find assignment_2_2024)/launch/assignment1.launch" />
+
+    <!-- Launch nodes inside ass2_ros1 -->
+    <node pkg="ass2_ros1" type="action_client.py" name="action_client_node" output="screen"/>
+    <node pkg="ass2_ros1" type="service.py" name="service_client_node" output="screen" />
+</launch>
