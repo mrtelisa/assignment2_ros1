@@ -8,7 +8,7 @@ The project implements a control system for a mobile robot in a simulated enviro
 
 - **Robot Control Node**: This node manages the robot's movement by receiving velocity commands and sending corresponding commands to the motors.
 
-- **Monitoring Node**: This node monitors the robot's state by collecting information from sensors and publishing data about the robot's current status. Those informations are written in a service, too.
+- **Monitoring Node**: This node monitors the robot's state by collecting information from sensors and publishing data about the robot's current status. Those informations are written in a topic, too.
 
 
 ## Prerequisites
