@@ -23,6 +23,10 @@ The project implements a control system for a mobile robot in a simulated enviro
     ```bash
     git clone https://github.com/CarmineD8/assignment_2_2024
     ```
+- In the workspace, run the following command:
+    ```bash
+    catkin_make
+    ```
 
 ## Usage
 

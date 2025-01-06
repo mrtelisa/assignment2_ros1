@@ -104,10 +104,20 @@ if __name__ == '__main__':
             define_goal(client, des_x, des_y)
 
             # Making the code run 
-            while client.get_state() not in [actionlib.GoalStatus.SUCCEEDED, actionlib.GoalStatus.ABORTED, actionlib.GoalStatus.PREEMPTED]:
+            while not rospy.is_shutdown():
+                state = client.get_state()
+
+                if state == actionlib.GoalStatus.SUCCEEDED:
+                    rospy.loginfo("Goal reached succesfully!")
+                    break
+                
+                if state in [actionlib.GoalStatus.ABORTED, actionlib.GoalStatus.PREEMPTED]:
+                    rospy.loginfo("Goal not reached. Retry!")
+                    break
+            
                 inter = interactions(client)
+                if inter == "exit": exit()
                 rate.sleep()
-                if inter == "exit": break
                 
         rospy.loginfo("Exit succesfully")
 
