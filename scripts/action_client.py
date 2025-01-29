@@ -4,17 +4,24 @@ import rospy
 import actionlib.msg
 import actionlib 
 import sys
+import math
 
 from geometry_msgs.msg import PoseStamped
 from nav_msgs.msg import Odometry
 
 import assignment_2_2024.msg
-from ass2_ros1.msg import RobotPosVel
+from ass2_ros1.msg import RobotPosVel, Dist
+
+float x_tr = 10
+float y_tr = 10
 
 def pub_PosVel(msg): pass
+def pub_Dist(msg): pass
 
 state_pub = rospy.Publisher("/robot_state", RobotPosVel, queue_size=10)
+dist_pub = rospy.Publisher("/distance", Dist, queue_size = 10)
 rospy.Subscriber("/odom", Odometry, pub_PosVel)
+rospy.Subscriber("/odom", Odometry, compute_dist)
 
 current_feedback = None
 # Function to update the feedback 
@@ -78,6 +85,13 @@ def pub_PosVel(msg):
     PosVel.vel_z = msg.twist.twist.linear.z
 
     state_pub.publish(PosVel)
+
+def pub_Dist(msg):
+    pos = msg.pose.pose.position
+    dist = Dist()
+    dist.distance = math.sqrt(((pos.x - x_tr)**2)+((pos.y - y_tr)**2))
+
+    dist_pub.publish(dist)
 
 
 if __name__ == '__main__':
