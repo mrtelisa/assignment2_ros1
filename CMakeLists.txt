@@ -53,6 +53,7 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
   FILES
   RobotPosVel.msg
+  ActualVel.msg
 #   Message1.msg
 #   Message2.msg
 )
@@ -61,6 +62,7 @@ add_message_files(
 add_service_files(
   FILES
   Target.srv
+  GoalsStatus.srv
 
 #   Service1.srv
 #   Service2.srv
