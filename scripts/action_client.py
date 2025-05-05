@@ -45,7 +45,7 @@ def interactions(client):
     # The user wants a feedback form the robot
     elif user_request.lower() == 'f':
         if current_feedback is None:
-            rospy.loginfp("No feedback has been recieved, sorry!")
+            rospy.loginfo("No feedback has been recieved, sorry!")
         else:
             rospy.loginfo("Latest feedback: %s", current_feedback)
         
